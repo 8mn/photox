@@ -1,0 +1,9 @@
+.container{
+    background-color: brown;
+    width: 40%;
+    height: max-content;
+    margin-top: 3rem;
+    /* position: fixed;
+    right: 20rem; */
+   
+}
