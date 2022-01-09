@@ -43,7 +43,7 @@
 
 .numOfLikes{
     color: #999999;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-left: .5rem;
 }
 
@@ -61,12 +61,13 @@
 
 
 .title{
-    margin: .5rem;
-    font-size: 1.3rem;
+    padding: .5rem;
+    font-size: 1rem;
+    color: rgb(38, 38, 38);
 }
 
 .userInfo{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: #3b3b3b;
     cursor: pointer;
 }
@@ -91,8 +92,8 @@
 
 .profilePic{
         background-color: greenyellow;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
   /* margin-right: 10px; */

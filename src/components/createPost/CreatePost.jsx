@@ -31,7 +31,7 @@ function CreatePost() {
 									stroke-width="2"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									class="ai ai-Image"
+								
 								>
 									<path d="M2 6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6z" />
 									<circle cx="8.5" cy="8.5" r="2.5" />
@@ -74,7 +74,6 @@ function CreatePost() {
 									stroke-width="2"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									class="ai ai-FaceWink"
 								>
 									<circle cx="12" cy="12" r="10" />
 									<path d="M7 9h2" />
