@@ -1,17 +1,18 @@
 .navbar {
 	width: 100%;
-    border-bottom: 1px solid rgb(185, 185, 185);
+    border-bottom: 1px solid #b9b9b9;
     height: 3rem;
     position: fixed;
     background-color: white;
     display: flex;
     margin: auto;
+    z-index: 100;
 }
 
 
 .nav {
     list-style: none;
-    width: 60%;
+    width: 50%;
     /* border: 2px solid black; */
     margin: auto;
     height: 3rem;
@@ -41,5 +42,61 @@
 .actions{
     display: flex;
     width: 50%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    /* background-color: aqua; */
+}
+
+
+.icon{
+    cursor: pointer;
+    margin-right: 1rem;
+    position: relative;
+}
+
+.badge{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    color: #fff;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
+}
+
+.Logout{
+    border: 2px solid #dc143c;
+    background-color: #ffbecb;
+    border-radius: 5px;
+    cursor: pointer;
+    /* border: none; */
+    padding: .3rem;
+    font-size: 1.3rem;
+}
+
+.Logout:hover{
+    background-color: crimson;
+    color: #fff;
+}
+
+.home{
+    cursor: pointer;
+}
+
+.navRight{
+    display: flex;
+}
+
+
+.profilePic{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: aqua;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-right: .7rem;
 }

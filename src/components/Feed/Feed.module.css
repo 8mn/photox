@@ -4,5 +4,6 @@
     /* border: 2px solid rgb(255, 58, 58); */
     /* padding: .5rem; */
     margin-top: 3rem;
+    z-index: 99;
 }
 

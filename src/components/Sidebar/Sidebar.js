@@ -1,12 +1,14 @@
-import styles from "./Sidebar.module.css"
-import React from 'react'
+import Style from "./Sidebar.module.css";
+import React from "react";
 
 function Sidebar() {
-    return (
-        <div className={styles.container}>
-            <div className={styles.sidebar}></div>
-        </div>
-    )
+	return (
+		<div className={Style.container}>
+			<div className={Style.sidebar}>
+				<div className={Style.profile}></div>
+			</div>
+		</div>
+	);
 }
 
-export default Sidebar
+export default Sidebar;

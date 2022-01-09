@@ -14,11 +14,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.container{
-    /* background-color: blanchedalmond; */
-    width: 60%;
-    margin: auto;
-    display: flex;
-    /* margin-top: 3rem; */
-}
