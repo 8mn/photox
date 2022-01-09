@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Style from "./Post.module.css";
 import { Users } from "../../dummyData";
 
 function Post({ title, photoSrc, date, likes, userId }) {
+	const [likeCount, setLikeCount] = useState(likes);
+	const [isliked, setIsLiked] = useState(false);
+
+	const handleClick = () => {
+		setLikeCount(isliked ? likeCount - 1 : likeCount + 1);
+		setIsLiked(!isliked);
+	};
+
+
+
+	
 	return (
 		<div className={Style.post}>
 			<div className={Style.postHead}>
@@ -52,14 +63,14 @@ function Post({ title, photoSrc, date, likes, userId }) {
 			<img src={photoSrc} alt="" />
 
 			<div className={Style.imageInfo}>
-				<div className={Style.likes}>
+				<div className={Style.likes} onClick={handleClick}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"
 						height="24"
 						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
+						fill={isliked ? "crimson" : "none"}
+						stroke={isliked ? "none" : "currentColor"}
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -67,7 +78,15 @@ function Post({ title, photoSrc, date, likes, userId }) {
 					>
 						<path d="M7 3C4.239 3 2 5.216 2 7.95c0 2.207.875 7.445 9.488 12.74a.985.985 0 0 0 1.024 0C21.125 15.395 22 10.157 22 7.95 22 5.216 19.761 3 17 3s-5 3-5 3-2.239-3-5-3z" />
 					</svg>
-					<span className={Style.numOfLikes}>Liked by {likes} people</span>
+					<span className={Style.numOfLikes}>
+						{likeCount === 0
+							? "Be the first to like this"
+							: `Liked by ${likeCount} people`
+						}
+						{/* {isliked
+							? `Liked by you & ${likeCount} people`
+							: `Liked by ${likeCount} people`} */}
+					</span>
 				</div>
 			</div>
 			<div className={Style.title}>{title ? title : ""}</div>

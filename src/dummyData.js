@@ -79,7 +79,7 @@ export const Posts = [
 			"https://images.unsplash.com/photo-1497536003283-519132e25a7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w0NTk1MjYzMnx8ZW58MHx8fHw%3D&w=1000&q=80",
 		date: "15 mins ago",
 		userId: 2,
-		like: 2,
+		like: 0,
 		comment: 1,
 	},
 	{
