@@ -4,7 +4,7 @@ import React from 'react'
 function Sidebar() {
     return (
         <div className={styles.container}>
-            <div className={styles.sidebar}> Sidebar </div>
+            <div className={styles.sidebar}></div>
         </div>
     )
 }

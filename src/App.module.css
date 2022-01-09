@@ -16,7 +16,7 @@ a {
 }
 
 .container{
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
     width: 60%;
     margin: auto;
     display: flex;
