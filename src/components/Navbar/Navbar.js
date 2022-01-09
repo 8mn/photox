@@ -41,7 +41,7 @@ function Navbar() {
 									<circle cx="12" cy="7" r="5" />
 									<path d="M17 14h.352a3 3 0 0 1 2.976 2.628l.391 3.124A2 2 0 0 1 18.734 22H5.266a2 2 0 0 1-1.985-2.248l.39-3.124A3 3 0 0 1 6.649 14H7" />
 								</svg>
-								<span className={Style.badge}>0</span>
+								<span className={Style.badge}>2</span>
 							</div>
 						</li>
 						<li>
@@ -62,12 +62,16 @@ function Navbar() {
 									<path d="M15 19a3 3 0 1 1-6 0" />
 									<path d="M12 2a2 2 0 0 1 2 2v1h-4V4a2 2 0 0 1 2-2z" />
 								</svg>
-								<span className={Style.badge}>0</span>
+								<span className={Style.badge}>1</span>
 							</div>
 						</li>
 					</div>
 					<div className={Style.navRight}>
-						<div className={Style.profilePic}></div>
+						<img
+							className={Style.profilePic}
+							src="https://images.unsplash.com/photo-1632766863758-779fe6654c20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+							alt=""
+						/>
 						<button className={Style.Logout}> Logout</button>
 					</div>
 				</ul>

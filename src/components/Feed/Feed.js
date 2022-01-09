@@ -1,6 +1,6 @@
 import React from "react";
 import CreatePost from "../createPost/CreatePost";
-import Post from "../Post/Post";
+import Post from "../Post/Post.jsx";
 import styles from "./Feed.module.css";
 
 function Feed() {
