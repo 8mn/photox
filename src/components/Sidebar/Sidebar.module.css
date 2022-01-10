@@ -1,10 +1,11 @@
 .container{
-    min-height: 20rem;
-    height: max-content;
+    height: 70vh;
+    /* height: max-content; */
     margin-top: .4rem;
     display: flex;
     flex: 1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    overflow-y: scroll;
    
 }
 
