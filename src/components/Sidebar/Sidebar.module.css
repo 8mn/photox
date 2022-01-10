@@ -1,38 +1,32 @@
 .container{
-    /* background-color: rgba(255, 204, 204, 0.411); */
-    width: 50%;
-    height: 100vh;
-    margin-top: 3rem;
-    position: fixed;
-    /* right: 20rem; */
-    /* right: 20rem; */
-    /* left: 0; */
+    min-height: 20rem;
+    height: max-content;
+    margin-top: .4rem;
     display: flex;
-    justify-content: flex-end;
-    
+    flex: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
    
 }
-/* 
-::-webkit-scrollbar{
-    width: 5px;
-}
-::-webkit-scrollbar-track{
-    background-color: #f1f1f1;
-}
-::-webkit-scrollbar-thumb{
-    background-color: rgb(185, 183, 183);
-} */
+
 
 .sidebar{
-    width: 40%;
-    /* background-color: rgb(255, 193, 193); */
-    padding: 1rem;
-    /* overflow-y: scroll; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.profile{
-    width: 3rem;
-    height: 3rem;
-    /* background-color: crimson; */
-    border-radius: 100%;
+.heading{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    /* text-align: center; */
+    margin-left: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.12);
+    padding: .5rem;
+}
+
+
+.FriendList{
+    margin:0;
+    margin-top: .5rem;
+    padding-left: 1.5rem;
 }

@@ -36,7 +36,7 @@ function Post({ title, photoSrc, date, likes, userId }) {
 							width="24"
 							height="24"
 							viewBox="0 0 24 24"
-							fill="#5c5c5c"
+							fill="#999999"
 							stroke-width="2"
 							class="ai ai-MoreVerticalFill"
 						>
@@ -81,8 +81,7 @@ function Post({ title, photoSrc, date, likes, userId }) {
 					<span className={Style.numOfLikes}>
 						{likeCount === 0
 							? "Be the first to like this"
-							: `Liked by ${likeCount} people`
-						}
+							: `Liked by ${likeCount} people`}
 						{/* {isliked
 							? `Liked by you & ${likeCount} people`
 							: `Liked by ${likeCount} people`} */}

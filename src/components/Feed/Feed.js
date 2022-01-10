@@ -6,14 +6,13 @@ import {Posts} from "../../dummyData"
 
 
 
-function Feed() {
+function Feed({hide}) {
 	return (
-		<div className={styles.container}>
-			<CreatePost />
+		<div className={styles.container} style={ {marginTop:!hide? "3rem" : 0}}>
+			{hide ? " " : <CreatePost />}
 
-			{
-				Posts.map(p => (
-					<Post 
+			{Posts.map((p) => (
+				<Post
 					key={p.id}
 					title={p.desc}
 					photoSrc={p.photo}
@@ -21,10 +20,8 @@ function Feed() {
 					likes={p.like}
 					comment={p.comment}
 					userId={p.userId}
-					/>
-				))
-			}
-			
+				/>
+			))}
 		</div>
 	);
 }

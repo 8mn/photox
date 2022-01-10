@@ -10,7 +10,7 @@ function Home() {
 				<Navbar />
 				<div className={Style.container}>
 					<Feed />
-					<Sidebar />
+					{/* <Sidebar /> */}
 				</div>
 			</div>
 		);

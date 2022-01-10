@@ -1,0 +1,45 @@
+.container{
+    /* background-color: blanchedalmond; */
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 3rem; */
+}
+
+.tabPanel{
+    display: flex;
+    
+    
+  
+   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+   /* padding: .7rem 0; */
+   /* z-index: 1234234; */
+}
+
+.Posts, .likedPosts{
+    margin-right: .4rem;
+    padding-bottom: .4rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+      color: rgba(0, 0, 0, 0.6);
+    
+      display: flex;
+      justify-content: flex-start;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      /* letter-spacing: 0.123em; */
+    font-family: 'Inter', sans-serif;
+
+}
+
+.active{
+      border-bottom: 2px solid #dc143c;
+      color: #dc143c;
+}
+
+main{
+    display: flex;
+}

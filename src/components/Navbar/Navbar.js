@@ -66,10 +66,10 @@ function Navbar() {
 					<div className={Style.navRight}>
 						<img
 							className={Style.profilePic}
-							src="https://images.unsplash.com/photo-1632766863758-779fe6654c20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+							src="https://images.unsplash.com/photo-1637867164941-9a09ad07bc9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
 							alt=""
 						/>
-						<button className={Style.Logout}> Logout</button>
+						{/* <button className={Style.Logout}> Logout</button> */}
 					</div>
 				</ul>
 			</ul>
