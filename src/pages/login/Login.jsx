@@ -1,6 +1,24 @@
 import Style from "./login.module.css";
 
+import { useContext, useRef } from "react";
+import { loginCall } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
+
 export default function Login() {
+	const { user, isFetching, error, dispatch } = useContext(AuthContext);
+
+	const email = useRef();
+	const password = useRef();
+	const HandleSubmit = (e) => {
+		e.preventDefault();
+		loginCall(
+			{ email: email.current.value, password: password.current.value },
+			dispatch
+		);
+	};
+
+	console.log(user);
 	return (
 		<main className={Style.main}>
 			<div className={Style.container}>
@@ -19,25 +37,48 @@ export default function Login() {
 							/>
 						</svg>
 					</div>
-					<form name="login" className={Style.form}>
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="text" />
-							<span className={Style.inputLabel}>E-mail</span>
-						</label>
+					<form name="login" className={Style.form} onSubmit={HandleSubmit}>
+						<div className={Style.form__group}>
+							<input
+								type="email"
+								id="email"
+								className={Style.form__field}
+								placeholder="Your Email"
+								ref={email}
+								required
+							/>
+							<label className={Style.form__label}>
+								Your Email
+							</label>
+						</div>
 
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="password" />
-							<span className={Style.inputLabel}>Password</span>
-						</label>
+						<div className={Style.form__group}>
+							<input
+								type="password"
+								id="email"
+								className={Style.form__field}
+								placeholder="Your Password"
+								ref={password}
+								required
+								minLength={6}
+							/>
+							<label  className={Style.form__label}>
+								Your Password
+							</label>
+						</div>
 						<div className={Style.inputControl}></div>
+						<button className={Style.loginBtn}>
+							{isFetching ? "Loading..." : "Login"}
+						</button>
 					</form>
-					<button className={Style.loginBtn}>Login</button>
 					<p>
 						Don't have an account?
-						<span className={Style.register}> Register!</span>
+						<span className={Style.register}>
+							<Link to="/register">Register!</Link>
+						</span>
 					</p>
 				</section>
-                <span className={Style.forgot}>Forgot your password?</span>
+				<span className={Style.forgot}>Forgot your password?</span>
 			</div>
 		</main>
 	);

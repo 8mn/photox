@@ -1,6 +1,46 @@
 import Style from "./register.module.css";
+import { Link } from "react-router-dom";
+import { useRef, useContext } from "react";
+import { loginCall } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
-export default function Login() {
+export default function Register() {
+	const { user, isFetching, error, dispatch } = useContext(AuthContext);
+
+	const username = useRef();
+	const email = useRef();
+	const password = useRef();
+	const passwordAgain = useRef();
+
+	const navigate = useNavigate();
+
+	const HandleSubmit = async (e) => {
+		e.preventDefault();
+
+		if (passwordAgain.current.value !== password.current.value) {
+			passwordAgain.current.setCustomValidity("Passwords don't match");
+		} else {
+			const user = {
+				username: username.current.value,
+				email: email.current.value,
+				password: password.current.value,
+			};
+			try {
+				await axios.post("/auth/register", user);
+
+				loginCall(
+					{ email: email.current.value, password: password.current.value },
+					dispatch
+				);
+				navigate("/");
+			} catch (error) {
+				console.log(error);
+			}
+		}
+	};
+
 	return (
 		<main className={Style.main}>
 			<div className={Style.container}>
@@ -19,30 +59,73 @@ export default function Login() {
 							/>
 						</svg>
 					</div>
-					<form name="login" className={Style.form}>
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="text" />
-							<span className={Style.inputLabel}>E-mail</span>
-						</label>
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="text" />
-							<span className={Style.inputLabel}>Username</span>
-						</label>
+					<form name="login" className={Style.form} onSubmit={HandleSubmit}>
+						<div className={Style.form__group}>
+							<input
+								type="email"
+								id="email"
+								className={Style.form__field}
+								placeholder="Your Email"
+								required
+								ref={email}
+							/>
+							<label className={Style.form__label}>
+								Your Email
+							</label>
+						</div>
 
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="password" />
-							<span className={Style.inputLabel}>Password</span>
-						</label>
-						<label className={Style.inputWrapper}>
-							<input className={Style.textInput} required type="password" />
-							<span className={Style.inputLabel}>Confirm Password</span>
-						</label>
+						<div className={Style.form__group}>
+							<input
+								type="text"
+								id="email"
+								className={Style.form__field}
+								placeholder="Your Username"
+								required
+								ref={username}
+							/>
+							<label className={Style.form__label}>
+								Your Username
+							</label>
+						</div>
+
+						<div className={Style.form__group}>
+							<input
+								type="password"
+								id="email"
+								className={Style.form__field}
+								placeholder="Your Password"
+								required
+								minLength={6}
+								ref={password}
+							/>
+							<label  className={Style.form__label}>
+								Your Password
+							</label>
+						</div>
+						<div className={Style.form__group}>
+							<input
+								type="password"
+								id="email"
+								className={Style.form__field}
+								placeholder="Confirm Password"
+								required
+								minLength={6}
+								ref={passwordAgain}
+							/>
+							<label className={Style.form__label}>
+								Confirm Password
+							</label>
+						</div>
 						<div className={Style.inputControl}></div>
+						<button className={Style.loginBtn} type="submit">
+							Sign Up
+						</button>
 					</form>
-					<button className={Style.loginBtn}>Sign Up</button>
 					<p>
 						Already have an account?
-						<span className={Style.register}> Login</span>
+						<span className={Style.register}>
+							<Link to="/login">Login</Link>
+						</span>
 					</p>
 				</section>
 			</div>

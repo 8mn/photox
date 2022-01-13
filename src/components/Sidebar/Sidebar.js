@@ -3,7 +3,7 @@ import React from "react";
 import { Users } from "../../dummyData";
 import FriendListElement from "../../components/FriendListElement/FriendListElement.jsx";
 
-function Sidebar() {
+function Sidebar({user}) {
 	return (
 		<div className={Style.container}>
 			<div className={Style.sidebar}>

@@ -1,23 +1,44 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CreatePost from "../createPost/CreatePost";
 import Post from "../Post/Post.jsx";
 import styles from "./Feed.module.css";
-import {Posts} from "../../dummyData"
+// import {Posts} from "../../dummyData"
+import axios from "axios"
+import { AuthContext } from "../../context/AuthContext"
+
+function Feed({hide, username}) {
+
+	const[posts, setPosts] = useState([])
+	// posts/profile/username
+
+	const { user } = useContext(AuthContext)
 
 
+	useEffect(() => {
 
-function Feed({hide}) {
+		const fetchPosts = async () => {
+			const res = username
+				? await axios.get(`/posts/profile/${username}`)
+				: await axios.get(`posts/timeline/${user._id}`);
+			setPosts(res.data)
+		}
+		fetchPosts();
+	},[username, user.user_id])
+
+	
+
 	return (
-		<div className={styles.container} style={ {marginTop:!hide? "3rem" : 0}}>
-			{hide ? " " : <CreatePost />}
+		<div className={styles.container} style={{ marginTop: !hide ? "3rem" : 0 }}>
+			{hide ? " " : <CreatePost username={username}/>}
 
-			{Posts.map((p) => (
+			{posts.map((p) => (
 				<Post
-					key={p.id}
+					key={p._id}
+					postId={p._id}
 					title={p.desc}
-					photoSrc={p.photo}
-					date={p.date}
-					likes={p.like}
+					photoSrc={p.img}
+					date={p.createdAt}
+					likes={p.likes}
 					comment={p.comment}
 					userId={p.userId}
 				/>
