@@ -116,7 +116,7 @@
   top: 20px;
 }
 
-label,
+/* label, */
 .form__field:focus ~ .form__label {
   position: absolute;
   top: 0;

@@ -1,24 +1,61 @@
+import { useContext, useRef, useState } from "react";
 import Style from "./CreatePost.module.css";
 
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
+
 function CreatePost() {
+	const { user } = useContext(AuthContext);
+	const [file, setFile] = useState(null);
+
+	const desc = useRef();
+
+	const handleFile = (e) => {
+		setFile(e.target.files[0]);
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		const newPost = {
+			userId:user._id,
+			desc: desc.current.value
+		}
+		console.log(newPost)
+
+		try {
+			await axios.post("/posts", newPost)
+		} catch (error) {
+			console.log(error);
+		}
+
+
+
+	}
+
+
 	return (
 		<div className={Style.share}>
 			<div className={Style.Wrapper}>
 				<div className={Style.Top}>
 					<img
 						className={Style.ProfileImg}
-						src="https://images.unsplash.com/photo-1637867164941-9a09ad07bc9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+						src={
+							user.profilePicture ||
+							"https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+						}
 						alt=""
 					/>
 					<input
-						placeholder="What's on your mind Dan?"
+						placeholder={`What's on your mind ${user.username}?`}
 						className={Style.Input}
+						ref={desc}
+						required
 					/>
 				</div>
 				{/* <hr className={Style.shareHr} /> */}
-				<div className={Style.Bottom}>
+				<form className={Style.Bottom} onSubmit={handleSubmit}>
 					<div className={Style.Options}>
-						<div className={Style.Option}>
+						<label className={Style.Option}>
 							<div className={Style.iconContainer}>
 								<svg
 									className={Style.shareIcon}
@@ -31,7 +68,6 @@ function CreatePost() {
 									stroke-width="2"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-								
 								>
 									<path d="M2 6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6z" />
 									<circle cx="8.5" cy="8.5" r="2.5" />
@@ -39,8 +75,16 @@ function CreatePost() {
 								</svg>
 							</div>
 							<span className={Style.OptionText}>Photo/Video</span>
-						</div>
-						<div className={Style.Option}>
+							<input
+								type="file"
+								name=""
+								id="file"
+								accept=".png,.jpg,.jpeg"
+								onChange={handleFile}
+								// style={{ display: "none" }}
+							/>
+						</label>
+						{/* <div className={Style.Option}>
 							<div className={Style.iconContainer}>
 								<svg
 									className={Style.shareIcon}
@@ -60,8 +104,8 @@ function CreatePost() {
 								</svg>
 							</div>
 							<span className={Style.OptionText}>Location</span>
-						</div>
-						<div className={Style.Option}>
+						</div> */}
+						{/* <div className={Style.Option}>
 							<div className={Style.iconContainer}>
 								<svg
 									className={Style.shareIcon}
@@ -82,10 +126,10 @@ function CreatePost() {
 								</svg>
 							</div>
 							<span className={Style.OptionText}>Feeling</span>
-						</div>
+						</div> */}
 					</div>
-					<button className={Style.Button}>Share</button>
-				</div>
+					<button className={Style.Button} type="submit">Share</button>
+				</form>
 			</div>
 		</div>
 	);

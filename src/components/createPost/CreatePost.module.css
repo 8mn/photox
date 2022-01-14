@@ -50,6 +50,7 @@
 .Options{
     display: flex;
     /* margin-left: 20px; */
+    /* background-color: cyan; */
 }
 
 .Option{
@@ -61,6 +62,9 @@
    
     border-radius: 100px;
     width: max-content;
+    /* padding: 1.2rem; */
+    /* background-color: darkcyan; */
+    
 }
 
 .iconContainer{
@@ -99,3 +103,7 @@
     font-size: 1.2rem;
 }
 
+
+input[type="file"] {
+    display: none;
+}
