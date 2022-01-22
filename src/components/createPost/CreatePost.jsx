@@ -68,6 +68,7 @@ function CreatePost() {
 		try {
 			await axios.post("/posts", newPostUpload)
 			.then(setPreview(undefined))
+			window.location.reload()
 		} catch (error) {
 			console.log(error);
 		}
@@ -192,10 +193,12 @@ function CreatePost() {
 				</form>
 				{image && (
 					<div className={Style.imageUpload}>
-						<span>{progress === 100 ? "Image Posted successfully" : ""}</span>
+						<span className={preview ? Style.CrossContainer : Style.hide}>
+							{progress === 100 ? "Image Posted successfully" : ""}
+						</span>
 
 						<div
-							className={preview? Style.CrossContainer: Style.hide}
+							className={preview ? Style.CrossContainer : Style.hide}
 							onClick={() => setImage(undefined)}
 							// style={{ display: !image? "none" :""  }}
 						>
