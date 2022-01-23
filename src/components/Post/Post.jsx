@@ -11,16 +11,15 @@ function Post({ title, photoSrc, date, likes, userId, postId }) {
 	const [isliked, setIsLiked] = useState(false);
 	const [user, setUser] = useState({});
 
-
-	const {user:currentUser} = useContext(AuthContext)
+	const { user: currentUser } = useContext(AuthContext);
 
 	useEffect(() => {
-		setIsLiked(likes.includes(currentUser._id))
-	},[currentUser._id, likes])
+		setIsLiked(likes.includes(currentUser._id));
+	}, [currentUser._id, likes]);
 
 	const handleClick = () => {
 		try {
-			axios.put(`/posts/${postId}/like`, {userId: currentUser._id});
+			axios.put(`/posts/${postId}/like`, { userId: currentUser._id });
 		} catch (error) {}
 
 		setLikeCount(isliked ? likeCount - 1 : likeCount + 1);

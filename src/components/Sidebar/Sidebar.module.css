@@ -1,11 +1,12 @@
 .container{
-    height: 70vh;
+    height: max-content;
     /* height: max-content; */
     margin-top: .4rem;
     display: flex;
     flex: 1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     overflow-y: scroll;
+    max-height: 70vh;
    
 }
 
@@ -30,4 +31,11 @@
     margin:0;
     margin-top: .5rem;
     padding-left: 1.5rem;
+}
+
+
+.nofriends{
+    margin:auto;
+    margin-top: 2rem;
+    padding: 1.5rem;
 }

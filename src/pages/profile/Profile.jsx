@@ -6,37 +6,35 @@ import ProfileHero from "../../components/ProfileHeroSection/ProfileHero";
 import { useState, useEffect } from "react/cjs/react.development";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import axios from "axios";
-import {useParams} from "react-router"
-
+import { useParams } from "react-router";
 
 function Profile() {
 	const [toggle, setToggle] = useState(1);
 
-
 	const [user, setUser] = useState({});
 
-	const username = useParams().username
+	const username = useParams().username;
 
 	const toggleTab = (index) => {
 		setToggle(index);
 		// console.log(index);
 	};
 
-
-		useEffect(() => {
-			const fetchUser = async () => {
-				const res = await axios.get(`/users?username=${username}`);
-				setUser(res.data);
-			};
-			fetchUser();
-		}, [username]);
-
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?username=${username}`);
+			setUser(res.data);
+		};
+		fetchUser();
+	}, [username]);
 
 	return (
 		<>
+
 			<Navbar />
 			<div className={Style.container}>
 				<ProfileHero
+				user={user}
 					username={user.username}
 					profilePic={user.profilePicture}
 				/>
@@ -62,7 +60,7 @@ function Profile() {
 				</div>
 				<main>
 					<Feed hide username={username} />
-					<Sidebar user={user}/>
+					<Sidebar user={user} />
 				</main>
 			</div>
 		</>

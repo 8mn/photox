@@ -74,11 +74,11 @@ export default function Login() {
 					<p>
 						Don't have an account?
 						<span className={Style.register}>
-							<Link to="/register">Register!</Link>
+							<Link to="/register"> Register!</Link>
 						</span>
 					</p>
 				</section>
-				<span className={Style.forgot}>Forgot your password?</span>
+				{/* <span className={Style.forgot}>Forgot your password?</span> */}
 			</div>
 		</main>
 	);
